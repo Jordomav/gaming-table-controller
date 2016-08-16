@@ -16,8 +16,6 @@ int right = 11;
 void setup () {
     Keyboard.begin();
 
-    Serial.begin(9600);
-
 //    Button pin modes
     pinMode(redBtn, INPUT_PULLUP);
     pinMode(blueBtn, INPUT_PULLUP);
@@ -32,6 +30,7 @@ void setup () {
 }
 
 void loop () {
+
 // digital read variables for buttons
     int redPress = digitalRead(redBtn);
     int bluePress = digitalRead(blueBtn);
@@ -44,35 +43,51 @@ void loop () {
     int joystickLeft = digitalRead(left);
     int joystickRight = digitalRead(right);
 
-    if (redPress == 1) {
-        Serial.println('Red');
+    if (redPress == 0) {
+        Keyboard.press(87);
+    } else {
+        Keyboard.release(87);
     }
 
-    if (bluePress == 1) {
-        Serial.println("Blue");
+    if (bluePress == 0) {
+        Keyboard.press(65);
+    } else {
+        Keyboard.release(65);
     }
 
-    if (yellowPress == 1) {
-        Serial.println("Yellow");
+    if (yellowPress == 0) {
+        Keyboard.press(83);
+    } else {
+        Keyboard.release(83);
     }
 
-    if (greenPress == 1) {
-        Serial.println("Green");
+    if (greenPress == 0) {
+        Keyboard.press(68);
+    } else {
+        Keyboard.release(68);
     }
 
-    if (joystickUp == 1) {
-        Serial.println("Up");
+    if (joystickUp == 0) {
+        Keyboard.press(38);
+    } else {
+        Keyboard.release(38);
     }
 
-    if (joystickDown == 1) {
-        Serial.println("Down");
+    if (joystickDown == 0) {
+        Keyboard.press(40);
+    } else {
+        Keyboard.release(40);
     }
 
-    if (joystickLeft == 1) {
-        Serial.println("Left");
+    if (joystickLeft == 0) {
+        Keyboard.press(37);
+    } else {
+        Keyboard.release(37);
     }
 
-    if (joystickRight == 1) {
-        Serial.println("Right");
+    if (joystickRight == 0) {
+        Keyboard.press(39);
+    } else {
+        Keyboard.release(39);
     }
 }
