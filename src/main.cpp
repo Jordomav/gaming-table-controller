@@ -16,6 +16,8 @@ int right = 11;
 void setup () {
     Keyboard.begin();
 
+    Serial.begin(9600);
+
 //    Button pin modes
     pinMode(redBtn, INPUT_PULLUP);
     pinMode(blueBtn, INPUT_PULLUP);
@@ -42,4 +44,35 @@ void loop () {
     int joystickLeft = digitalRead(left);
     int joystickRight = digitalRead(right);
 
+    if (redPress == 1) {
+        Serial.println('Red');
+    }
+
+    if (bluePress == 1) {
+        Serial.println("Blue");
+    }
+
+    if (yellowPress == 1) {
+        Serial.println("Yellow");
+    }
+
+    if (greenPress == 1) {
+        Serial.println("Green");
+    }
+
+    if (joystickUp == 1) {
+        Serial.println("Up");
+    }
+
+    if (joystickDown == 1) {
+        Serial.println("Down");
+    }
+
+    if (joystickLeft == 1) {
+        Serial.println("Left");
+    }
+
+    if (joystickRight == 1) {
+        Serial.println("Right");
+    }
 }
