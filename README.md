@@ -20,17 +20,40 @@ Change `upload_port = /dev/tty.usbmodemHIDP1` to match the port you have the Leo
 
 Run `platformio run` and the code will now be on your Leonardo
 
+## Current settings
+
 The current pin layout is:
 ```C++
 // Button variables
-int redBtn = 4;
-int blueBtn = 5;
-int yellowBtn = 6;
-int greenBtn = 7;
+int redBtn = 4; // represents W key
+int blueBtn = 5; // represents A key
+int yellowBtn = 6; // represents S key
+int greenBtn = 7; // represents D key
 
 // Joystick variables
-int forward = 8;
-int backward = 9;
-int left = 10;
-int right = 11;
+int forward = 8; // represents UP arrow
+int backward = 9; // represents DOWN arrow
+int left = 10; // represents LEFT arrow
+int right = 11; // represents RIGHT arrow
+```
+
+Pin Mode config:
+```C++
+pinMode(redBtn, INPUT_PULLUP);
+```
+`redBtn` being the 4th io pin. Using `INPUT_PULLUP` is very important, if you just use `INPUT` this will not work.
+
+THe current digital write variables are:
+```C++
+// digital read variables for buttons
+    int redPress = digitalRead(redBtn); // W
+    int bluePress = digitalRead(blueBtn); // A
+    int yellowPress = digitalRead(yellowBtn); // S
+    int greenPress = digitalRead(greenBtn); // D
+
+// digital read variables for joystick
+    int joystickUp = digitalRead(forward); // UP
+    int joystickDown = digitalRead(backward); // DOWN
+    int joystickLeft = digitalRead(left); // LEFT
+    int joystickRight = digitalRead(right); // RIGHT
 ```
